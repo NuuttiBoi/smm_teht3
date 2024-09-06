@@ -25,12 +25,24 @@ public class Department extends Component {
     }
 
     @Override
-    public int getSalary() {
-        int salary = 0;
+    public double getSalary() {
+        double salary = 0;
         for(Component child : children){
             salary += child.getSalary();
         }
         return salary;
+    }
+
+
+    @Override
+    public String printStructure(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("<Department name=\"").append(name).append("\">\n");
+        for (Component component : children) {
+            sb.append(component.printStructure(indent + "  "));
+        }
+        sb.append(indent).append("</Department>\n");
+        return sb.toString();
     }
 
     @Override

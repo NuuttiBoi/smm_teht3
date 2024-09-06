@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Employee extends Component {
 
-    protected int salary = 0;
+    protected double salary = 0;
     private List<Component> children = new ArrayList<>();
 
     public Employee(String name, int salary) {
@@ -12,7 +12,7 @@ public class Employee extends Component {
     }
 
     @Override
-    public int getSalary(){
+    public double getSalary(){
         return this.salary;
     }
 
@@ -28,6 +28,11 @@ public class Employee extends Component {
     @Override
     public void remove(Component component) {
         children.remove(component);
+    }
+
+    @Override
+    public String printStructure(String indent) {
+        return indent + "<Employee name=\"" + name + "\" salary=\"" + salary + "\" />\n";
     }
 
     @Override

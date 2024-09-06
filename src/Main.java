@@ -8,12 +8,13 @@ public class Main {
 
         Organization organization = new Organization("org");
 
-        Employee matti = new Employee("matti",9);
-        Employee vesa = new Employee("vesa",1);
+        Employee matti = new Employee("matti",1900);
+        Employee vesa = new Employee("vesa",2500);
 
         Department hr = new Department("hr");
 
         matti.printData();
+        vesa.printData();
 
         hr.add(matti);
         hr.add(vesa);
@@ -23,9 +24,11 @@ public class Main {
         System.out.println(organization.getSalaries());
         System.out.println(organization.getSalaries());
 
+        organization.printOrganizationStructure();
 
         organization.remove(hr);
         System.out.println("Palkat poistamisen jälkeen:");
         System.out.println(organization.getSalaries());
+
     }
 }

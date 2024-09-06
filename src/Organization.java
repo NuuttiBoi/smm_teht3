@@ -5,6 +5,8 @@ public class Organization{
 
     protected String name;
     private List<Component> children;
+    private Component root;
+
     public Organization(String name) {
         this.name = name;
         children = new ArrayList<>();
@@ -24,6 +26,14 @@ public class Organization{
             salaries += child.getSalary();
         }
         return salaries;
+    }
+
+    public void printOrganizationStructure() {
+        System.out.println("<Organization>");
+        for (Component child : children) {
+            System.out.println(child.printStructure(""));
+        }
+        System.out.println("</Organization>");
     }
 
 }
